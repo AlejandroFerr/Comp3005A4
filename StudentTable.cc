@@ -29,14 +29,17 @@ void StudentTable::getAllStudents()
 
 void StudentTable::addStudent(string fName, string lName, string emailAddress, int d, int m, int y) {
 	if (fName == "") {
+		cout << "ERROR: Please enter a Non-Empty First Name.\n" << endl;
 		return; // FAIL
 	}
 
 	if (lName == "") {
+		cout << "ERROR: Please enter a Non-Empty Last Name.\n" << endl;
 		return; // FAIL
 	}
 
 	if (emailAddress == "") {
+		cout << "ERROR: Please enter a Non-Empty Email Address.\n" << endl;
 		return; // FAIL
 	}
 
@@ -56,6 +59,12 @@ void StudentTable::addStudent(string fName, string lName, string emailAddress, i
 void StudentTable::updateStudentEmail(int studentId, string newEmail)
 {
 	if (newEmail == "") {
+		cout << "ERROR: Please enter a Non-Empty Email.\n" << endl;
+		return; // FAIL
+	}
+	
+	if (studentId >> numOfStudents || studentId < 1) {
+		cout << "ERROR: Please enter a valid Student ID.\n" << endl;
 		return; // FAIL
 	}
 
@@ -71,7 +80,8 @@ void StudentTable::updateStudentEmail(int studentId, string newEmail)
 
 void StudentTable::deleteStudent(int whichStudent)
 {
-	if (whichStudent > numOfStudents || whichStudent < 0) {
+	if (whichStudent > numOfStudents || whichStudent < 1) {
+		cout << "ERROR: Please enter a valid Student ID.\n" << endl;
 		return; // FAIL
 	}
 	
